@@ -354,9 +354,10 @@ def generate_hash(rule, secure_hash=None):
                 condition_mapping.append('<{}>{}'.format(symbol_type, string_mapping['named'][condition]))
             else:
                 condition_mapping.append('<{}>{}'.format(symbol_type, condition))
-                logger.error('[!] Unhandled {} Condition "{}" in "{}"'.format(
+                logger.info('[!] Unhandled {} Condition "{}" in "{}"'.format(
                     symbol_type, symbol, ' '.join(conditions))
                 )
+                # Should be logger.error; but set to info for nested loop edge cases
 
         else:
             condition_mapping.append(condition)
